@@ -2,7 +2,7 @@ import subprocess
 import os
 
 def test_hello_output():
-    # Get the absolute path to Hello.py (parent folder)
+    # Path to Hello.py (go one directory up from the test file)
     script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Hello.py"))
 
     result = subprocess.run(
@@ -10,4 +10,5 @@ def test_hello_output():
         capture_output=True,
         text=True
     )
+
     assert result.stdout.strip() == "hello world"
